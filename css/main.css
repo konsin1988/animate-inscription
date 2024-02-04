@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,600;1,500;1,600&family=Titillium+Web:ital@0;1&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Titillium+Web", sans-serif;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(101, 101, 101);
+  background-image: linear-gradient(to right, #5d5c5c 1px, #00000000 1px),
+    linear-gradient(to bottom, #333 1px, #00000000 1px);
+  background-size: 4vh 4vh;
+}
+h2 {
+  color: #fff;
+  font-size: 5em;
+  padding: 0 100px;
+}
+h2 span {
+  position: relative;
+  color: #ffffff20;
+  animation: displayText 9s infinite;
+  animation-delay: calc(-3s * var(--i));
+}
+@keyframes displayText {
+  0% {
+    display: inline-block;
+  }
+  33.33%,
+  100% {
+    display: none;
+  }
+}
+h2 span::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: orange;
+  border-right: 4px solid orange;
+  filter: drop-shadow(0 0 5px orange) drop-shadow(0 0 25px orange);
+  animation: movePointer 3s linear infinite;
+  overflow: hidden;
+  white-space: nowrap;
+}
+@keyframes movePointer {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
